@@ -1,17 +1,262 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="utf-8">
-    <title>秋风庇护所</title>
-    <link rel="stylesheet" href="css/main.css">
-  </head>
+<head>
+  <meta charset="utf-8">
+  <title>秋风庇护所</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* 玻璃效果顶部菜单栏 */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 1000;
+    }
+    
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      background: linear-gradient(to right, #d35400, #f39c12);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links {
+      display: flex;
+      margin-left: auto;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .nav-links a.active {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+    }
+    
+    /* 主页内容样式 */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px;
+    }
+    
+    .text {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 60px 40px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .text p {
+      font-size: 32px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .text p:last-child {
+      margin-top: 40px;
+      font-size: 26px;
+      color: #f1c40f;
+    }
+    
+    .autumn-leaves {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+    
+    .leaf {
+      position: absolute;
+      background-size: cover;
+      opacity: 0.7;
+      animation: fall linear infinite;
+    }
+    
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+    
+    /* 选项页面样式 */
+    .options-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .option-card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .option-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(231, 76, 60, 0.3);
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .option-card h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #d35400;
+    }
+    
+    .option-card p {
+      font-size: 18px;
+      color: #7f8c8d;
+      margin-bottom: 20px;
+    }
+    
+    .enter-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background: linear-gradient(to right, #e67e22, #d35400);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .enter-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+    }
+    
+    /* 页脚样式 */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 16px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
 
-  <body>
+<body>
+  <!-- 顶部菜单栏 -->
+  <nav class="navbar">
+    <div class="logo">秋风庇护所</div>
+    <div class="nav-links">
+      <a href="index.html" class="active">主页</a>
+      <a href="option.html">选项</a>
+    </div>
+  </nav>
+  
+  <!-- 落叶背景效果 -->
+  <div class="autumn-leaves" id="leaves-container"></div>
+  
+  <!-- 主页内容 -->
+  <div class="container">
     <div class="text">
       <p>你好，</p>
       <p>这里是秋风庇护所，</p>
-      <p>张某均和“建筑师”们的劳动成果！</p>
+      <p>张某均和"建筑师"们的劳动成果！</p>
       <p>你可以在这里歇一会</p>
     </div>
-  </body>
+  </div>
+  
+  <!-- 页脚 -->
+  <div class="footer">
+    <p>秋风庇护所 © 2023 | 张某均和建筑师们的创作</p>
+  </div>
+  
+  <script>
+    // 创建落叶效果
+    document.addEventListener('DOMContentLoaded', function() {
+      const leavesContainer = document.getElementById('leaves-container');
+      const leafTypes = 3; // 3种不同的叶子
+      
+      // 创建叶子
+      for (let i = 0; i < 30; i++) {
+        const leaf = document.createElement('div');
+        leaf.classList.add('leaf');
+        
+        // 随机选择叶子类型
+        const leafType = Math.floor(Math.random() * leafTypes) + 1;
+        leaf.style.backgroundImage = `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path fill="${getRandomLeafColor()}" d="${getRandomLeafPath(leafType)}"/></svg>')`;
+        
+        // 随机大小
+        const size = Math.random() * 30 + 20;
+        leaf.style.width = `${size}px`;
+        leaf.style.height = `${size}px`;
+        
+        // 随机位置
+        leaf.style.left = `${Math.random() * 100}%`;
+        
+        // 随机动画
+        const duration = Math.random() * 10 + 10;
+        const delay = Math.random() * 5;
+        leaf.style.animation = `fall ${duration}s linear ${delay}s infinite`;
+        
+        leavesContainer.appendChild(leaf);
+      }
+      
+      function getRandomLeafColor() {
+        const colors = ['#e74c3c', '#d35400', '#f39c12', '#c0392b', '#e67e22'];
+        return colors[Math.floor(Math.random() * colors.length)];
+      }
+      
+      function getRandomLeafPath(type) {
+        // 三种不同形状的叶子
+        const paths = [
+          "M50,10 C60,20 70,30 80,50 C70,70 60,80 50,90 C40,80 30,70 20,50 C30,30 40,20 50,10 Z",
+          "M50,5 C65,20 75,35 85,55 C75,75 65,85 50,95 C35,85 25,75 15,55 C25,35 35,20 50,5 Z",
+          "M50,15 C55,25 65,35 75,50 C65,65 55,75 50,85 C45,75 35,65 25,50 C35,35 45,25 50,15 Z"
+        ];
+        return paths[type - 1];
+      }
+    });
+  </script>
+</body>
 </html>
