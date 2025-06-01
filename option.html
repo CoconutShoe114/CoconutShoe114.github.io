@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>选项 - 秋风庇护所</title>
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    /* 玻璃效果顶部菜单栏 */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      z-index: 1000;
+    }
+    
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      background: linear-gradient(to right, #d35400, #f39c12);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    
+    .nav-links {
+      display: flex;
+      margin-left: auto;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+    
+    .nav-links a.active {
+      background: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 15px rgba(231, 76, 60, 0.4);
+    }
+    
+    /* 选项页面样式 */
+    .options-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 40px;
+    }
+    
+    .page-title {
+      text-align: center;
+      font-size: 36px;
+      color: white;
+      margin-bottom: 40px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    
+    .option-card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .option-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(231, 76, 60, 0.3);
+      background: rgba(255, 255, 255, 0.3);
+    }
+    
+    .option-card h2 {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: #d35400;
+    }
+    
+    .option-card p {
+      font-size: 18px;
+      color: #7f8c8d;
+      margin-bottom: 20px;
+    }
+    
+    .enter-btn {
+      display: inline-block;
+      padding: 10px 25px;
+      background: linear-gradient(to right, #e67e22, #d35400);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+    
+    .enter-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+    }
+    
+    /* 页脚样式 */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 16px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 顶部菜单栏 -->
+  <nav class="navbar">
+    <div class="logo">秋风庇护所</div>
+    <div class="nav-links">
+      <a href="index.html">主页</a>
+      <a href="option.html" class="active">选项</a>
+    </div>
+  </nav>
+  
+  <!-- 选项页面内容 -->
+  <div class="options-container">
+    <h1 class="page-title">秋日庇护所选项</h1>
+    <div class="options-grid">
+      <div class="option-card">
+        <h2>宫崎英高的小屋</h2>
+        <p>署名：常樾哲</p>
+        <a href="option/gqyg.html" class="enter-btn">进入探索</a>
+      </div>
+
+      <div class="option-card">
+        <h2>金色麦田</h2>
+        <p>署名：Amsitano D++</p>
+        <a href="#" class="enter-btn">进入探索</a>
+      </div>
+      
+      <div class="option-card">
+        <h2>秋叶图书馆</h2>
+        <p>署名：张某均</p>
+        <a href="option/library.html" class="enter-btn">进入探索</a>
+      </div>
+      
+      <div class="option-card">
+        <h2>建筑师之家</h2>
+        <p>署名：Wina</p>
+        <a href="option/builder.html" class="enter-btn">进入探索</a>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 页脚 -->
+  <div class="footer">
+    <p>秋风庇护所 © 2025 | 张某均和建筑师们的创作</p>
+  </div>
+</body>
+</html>
