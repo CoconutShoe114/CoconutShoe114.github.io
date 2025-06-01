@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Microsoft YaHei', sans-serif;
+}
+    
+body {
+  background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+  min-height: 100vh;
+  padding-top: 80px;
+  color: #2c3e50;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
